@@ -1,8 +1,8 @@
 defmodule CodeBeam.Handler.Registration do
-  alias CodeBeam.Service.{CreateUser, SendRegistrationEmail}
+  alias CodeBeam.Accounts.Service.{CreateUser, SendRegistrationEmail}
 
-  def setup_user(user_params) do
-    with {:ok, user} <- CreateUser.call(user_params),
+  def setup_user(name) do
+    with {:ok, user} <- CreateUser.call(name),
          :ok <- SendRegistrationEmail.call(user) do
       user
     else
