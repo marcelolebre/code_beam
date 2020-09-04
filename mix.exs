@@ -45,7 +45,8 @@ defmodule CodeBeam.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:benchee, "~> 1.0", only: :dev}
+      {:benchee, "~> 1.0", only: :dev},
+      {:httpoison, "~> 1.6"}
     ]
   end
 

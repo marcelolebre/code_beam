@@ -7,9 +7,11 @@ defmodule CodeBeam.Accounts.Service.CreateUser do
       Logger.info("Yay a new user has registered!")
       user
     else
-      _ ->
-        Logger.error("KAPPOW!")
-        :error
+      {:error, %Ecto.Changeset{} = changeset} ->
+        {:error, {:invalid_params, changeset.errors}}
+
+      error ->
+        error
     end
   end
 end

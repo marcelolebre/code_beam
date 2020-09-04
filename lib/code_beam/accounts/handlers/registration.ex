@@ -3,17 +3,11 @@ defmodule CodeBeam.Handler.Registration do
 
   def setup_user(name) do
     with {:ok, user} <- CreateUser.call(name),
-         :ok <- SendRegistrationEmail.call(user) do
+         :ok <- SendNotification.call(user) do
       user
     else
-      {:error, :invalid_params} ->
-        IO.inspect(:invalid_params)
-
-      {:error, :failed_email} ->
-        IO.inspect(:invalid_params)
-
       error ->
-        IO.inspect(error)
+        error
     end
   end
 
