@@ -1,7 +1,7 @@
 defmodule CodeBeam.Accounts.Service.SendNotification do
   require Logger
 
-  def call(name) do
-    Logger.info("Notification sent to #{name}")
+  def call(user) do
+    Logger.info("Notification sent to #{user.name}")
   end
 end

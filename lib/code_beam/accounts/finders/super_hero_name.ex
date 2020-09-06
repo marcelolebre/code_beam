@@ -2,8 +2,8 @@ defmodule CodeBeam.Accounts.Finder.SuperHeroName do
   require Logger
 
   @marvel_api_endpoint "https://gateway.marvel.com:443/v1/public/characters"
-  @public_key Application.get_env(:marvel, :public_key)
-  @private_key Application.get_env(:marvel, :private_key)
+  @public_key Application.get_env(:code_beam, :marvel_public_key)
+  @private_key Application.get_env(:code_beam, :marvel_private_key)
 
   def find(name) do
     search_marvel(name)
