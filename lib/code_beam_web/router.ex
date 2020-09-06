@@ -14,9 +14,9 @@ defmodule CodeBeamWeb.Router do
   end
 
   scope "/", CodeBeamWeb do
-    pipe_through :browser
+    pipe_through :api
 
-    get "/", PageController, :index
+    get "/", PageController, :register
   end
 
   # Other scopes may use custom stacks.

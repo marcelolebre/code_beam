@@ -1,4 +1,4 @@
-defmodule Value do
+defmodule CodeBeam.Value do
   @moduledoc """
   Macro to allow better API Response composition. With this module we're able to compose complex json messages faster and simpler.
 
