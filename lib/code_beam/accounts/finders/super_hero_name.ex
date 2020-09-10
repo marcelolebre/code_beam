@@ -6,10 +6,6 @@ defmodule CodeBeam.Accounts.Finder.SuperHeroName do
   @private_key Application.get_env(:code_beam, :marvel_private_key)
 
   def find(name) do
-    search_marvel(name)
-  end
-
-  defp search_marvel(name) do
     with timestamp <- create_timestamp(),
          hash <- create_hash(timestamp),
          search_results <- search_characters(name, hash, timestamp) do
@@ -35,12 +31,12 @@ defmodule CodeBeam.Accounts.Finder.SuperHeroName do
     end
   end
 
-  def get_marvel_url(name, hash, ts) do
+  defp get_marvel_url(name, hash, ts) do
     @marvel_api_endpoint <> "?name=#{name}&apikey=#{@public_key}&hash=#{hash}&ts=#{ts}"
   end
 
   defp create_hash(timestamp) do
-    :crypto.hash(:md5, "#{timestamp}" <> @private_key <> @public_key)
+    :crypto.hash(:md5, "#{timestamp}#{@private_key}#{@public_key}")
     |> Base.encode16(case: :lower)
   end
 
