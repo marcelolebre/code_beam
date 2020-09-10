@@ -17,7 +17,5 @@ config :code_beam,
 
   ```
 
-## Testing the app
-
-* Run the server
-* `
+  * Run the server
+  * Test the server with `curl localhost:4000/?q=Hulk`
