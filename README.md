@@ -4,17 +4,20 @@ To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
+  * Get Marvel API credentials from [here](https://www.google.com/search?client=safari&rls=en&q=marvel+api+account&ie=UTF-8&oe=UTF-8)
   * Install Node.js dependencies with `npm install` inside the `assets` directory
   * Start Phoenix endpoint with `mix phx.server`
+  * Create a `dev.secret.exs` file and add the following:
+  ```
+use Mix.Config
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+config :code_beam,
+  marvel_public_key: "marvel-public-key",
+  marvel_private_key: "marvel-private-key"
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+  ```
 
-## Learn more
+## Testing the app
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+* Run the server
+* `
