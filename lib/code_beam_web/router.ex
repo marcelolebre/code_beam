@@ -17,6 +17,7 @@ defmodule CodeBeamWeb.Router do
     pipe_through :api
 
     get "/", PageController, :register
+    get "/2", PageController, :register2
   end
 
   # Other scopes may use custom stacks.

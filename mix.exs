@@ -46,7 +46,8 @@ defmodule CodeBeam.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:benchee, "~> 1.0", only: :dev},
-      {:httpoison, "~> 1.6"}
+      {:httpoison, "~> 1.6"},
+      {:benchee, "~> 1.0", only: :dev}
     ]
   end
 
@@ -61,7 +62,8 @@ defmodule CodeBeam.MixProject do
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      benchmark: ["run priv/tasks/benchmark.exs"]
     ]
   end
 end
